@@ -42,4 +42,21 @@ class AuthRepository {
       showSnackBar(context: context, content: e.message!);
     }
   }
+
+  void verifyOTP({
+    required BuildContext context,
+    required String verificationId,
+    required String userOTP,
+  }) async {
+    try {
+      PhoneAuthCredential credential = PhoneAuthProvider.credential(
+        verificationId: verificationId,
+        smsCode: userOTP,
+      );
+      await auth.signInWithCredential(credential);
+      print('成功');
+    } on FirebaseAuthException catch (e) {
+      showSnackBar(context: context, content: '間違えています');
+    }
+  }
 }
