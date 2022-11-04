@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_project_template/features/auth/screens/login_screen.dart';
 
+import 'features/landing/screens/landing_screen.dart';
+import 'router.dart';
 import 'theme/pllete.dart';
 
 void main() {
@@ -14,8 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: Pallete.lightModeAppTheme,
-      home: const LoginScreen(),
+      theme: Pallete.darkModeAppTheme,
+      onGenerateRoute: (settings) => generateRoute(settings),
+      home: const LandingScreen(),
     );
   }
 }
