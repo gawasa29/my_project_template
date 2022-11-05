@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: Pallete.darkModeAppTheme,
+      theme: Pallete.lightModeAppTheme,
       onGenerateRoute: (settings) => generateRoute(settings),
       home: const LandingScreen(),
     );

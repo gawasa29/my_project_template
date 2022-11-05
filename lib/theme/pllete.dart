@@ -28,19 +28,19 @@ class Pallete {
   );
 
   static var lightModeAppTheme = ThemeData.light().copyWith(
-      scaffoldBackgroundColor: whiteColor,
-      cardColor: greyColor,
-      appBarTheme: const AppBarTheme(
-        backgroundColor: whiteColor,
-        elevation: 0,
-        iconTheme: IconThemeData(
-          color: blackColor,
-        ),
-      ),
-      drawerTheme: const DrawerThemeData(
-        backgroundColor: whiteColor,
-      ),
-      primaryColor: redColor,
+    scaffoldBackgroundColor: whiteColor,
+    cardColor: greyColor,
+    appBarTheme: const AppBarTheme(
       backgroundColor: whiteColor,
-      textTheme: const TextTheme(bodyText1: TextStyle(color: blackColor)));
+      elevation: 0,
+      iconTheme: IconThemeData(
+        color: blackColor,
+      ),
+    ),
+    drawerTheme: const DrawerThemeData(
+      backgroundColor: whiteColor,
+    ),
+    primaryColor: redColor,
+    backgroundColor: whiteColor,
+  );
 }
