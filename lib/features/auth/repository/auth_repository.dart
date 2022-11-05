@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_project_template/common/utils.dart';
 
 import '../screens/otp_screen.dart';
+import '../screens/user_information_screen.dart';
 
 final authRepositoryProvider = Provider(
   (ref) => AuthRepository(
@@ -54,7 +55,12 @@ class AuthRepository {
         smsCode: userOTP,
       );
       await auth.signInWithCredential(credential);
-      print('成功');
+      //戻るができない画面遷移方法
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        UserInformationScreen.routeName,
+        (route) => false,
+      );
     } on FirebaseAuthException catch (e) {
       showSnackBar(context: context, content: '間違えています');
     }
