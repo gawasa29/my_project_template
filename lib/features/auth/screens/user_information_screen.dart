@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_project_template/features/auth/controller/auth_controller.dart';
 
 import '../../../common/utils.dart';
 
@@ -34,7 +35,11 @@ class _UserInformationScreenState extends ConsumerState<UserInformationScreen> {
   void storeUserData() async {
     String name = nameController.text.trim();
 
-    if (name.isNotEmpty) {}
+    if (name.isNotEmpty) {
+      ref
+          .read(authControllerProvider)
+          .saveUserDataToFirebase(context, name, image);
+    }
   }
 
   @override
