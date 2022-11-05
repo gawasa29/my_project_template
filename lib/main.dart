@@ -21,14 +21,20 @@ void main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerStatefulWidget {
   const MyApp({super.key});
+
+  @override
+  ConsumerState<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends ConsumerState<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: Pallete.lightModeAppTheme,
+      theme: ref.watch(themeNotifierProvider),
       onGenerateRoute: (settings) => generateRoute(settings),
       home: const LandingScreen(),
     );
