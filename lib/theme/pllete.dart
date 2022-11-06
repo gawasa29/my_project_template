@@ -51,6 +51,7 @@ class Pallete {
   );
 }
 
+//複数の定数を定義できるクラス
 enum ThemeMode {
   light,
   dark,
