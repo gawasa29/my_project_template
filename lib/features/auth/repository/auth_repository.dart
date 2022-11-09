@@ -8,6 +8,7 @@ import 'package:my_project_template/common/repositories/common_firebase_storage_
 import 'package:my_project_template/common/utils.dart';
 import 'package:my_project_template/models/user_model.dart';
 
+import '../../../common/constants.dart';
 import '../../home_screen.dart';
 import '../screens/otp_screen.dart';
 import '../screens/user_information_screen.dart';
@@ -27,7 +28,7 @@ class AuthRepository {
 
   Future<UserModel?> getCurrentUserData() async {
     var userData =
-        await firestore.collection("user").doc(auth.currentUser?.uid).get();
+        await firestore.collection(USERS).doc(auth.currentUser?.uid).get();
     UserModel? user;
     if (userData.data() != null) {
       user = UserModel.fromMap(userData.data()!);
@@ -97,12 +98,12 @@ class AuthRepository {
             .storeFileToFirebase('profilePic/$uid', profilePic);
       }
       var user = UserModel(
-          name: name,
-          uid: uid,
-          profilePic: photoUrl,
-          isOnline: true,
-          phoneNumber: auth.currentUser!.uid,
-          groupId: []);
+        name: name,
+        uid: uid,
+        profilePic: photoUrl,
+        isOnline: true,
+        phoneNumber: auth.currentUser!.uid,
+      );
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(
@@ -110,7 +111,7 @@ class AuthRepository {
         ),
         (route) => false,
       );
-      await firestore.collection('user').doc(uid).set(user.toMap());
+      await firestore.collection(USERS).doc(uid).set(user.toMap());
     } catch (e) {
       showSnackBar(context: context, content: e.toString());
     }

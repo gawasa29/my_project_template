@@ -27,6 +27,7 @@ class _BottomChatScreenState extends ConsumerState<BottomChatScreen> {
       children: [
         Expanded(
           child: TextField(
+            controller: _messageController,
             decoration: InputDecoration(
               filled: true,
               prefixIcon: const SizedBox(

@@ -23,7 +23,8 @@ class TestScreen1 extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (context) => MobileChatScreen(
                               name: "gasafd",
-                              uid: "12121212`12121",
+                              //ここに相手のuid入れる
+                              uid: "yUkwpotBuFW0kNhS4BZJA83xsbc2",
                             )),
                   );
                 },

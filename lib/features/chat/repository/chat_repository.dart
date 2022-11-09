@@ -7,6 +7,7 @@ import 'package:my_project_template/models/message.dart';
 import 'package:my_project_template/models/user_model.dart';
 import 'package:uuid/uuid.dart';
 
+import '../../../common/constants.dart';
 import '../../../common/enums/messege_enum.dart';
 import '../../../models/chat_contact.dart';
 
@@ -40,9 +41,9 @@ class ChatRepository {
       lastMessage: text,
     );
     await firestore
-        .collection('user')
+        .collection(USERS)
         .doc(recieverUserId)
-        .collection('chats')
+        .collection(CHATS)
         .doc(auth.currentUser!.uid)
         .set(
           recieverChatContact.toMap(),
@@ -57,9 +58,9 @@ class ChatRepository {
       lastMessage: text,
     );
     await firestore
-        .collection('users')
+        .collection(USERS)
         .doc(auth.currentUser!.uid)
-        .collection('chats')
+        .collection(CHATS)
         .doc(recieverUserId)
         .set(
           senderChatContact.toMap(),
@@ -85,22 +86,22 @@ class ChatRepository {
         isSeen: false);
     // users -> sender id -> reciever id -> messages -> message id -> store message
     await firestore
-        .collection('users')
+        .collection(USERS)
         .doc(auth.currentUser!.uid)
-        .collection('chats')
+        .collection(CHATS)
         .doc(recieverUserId)
-        .collection('messages')
+        .collection(MESSAGES)
         .doc(messageId)
         .set(
           message.toMap(),
         );
     // users -> reciever id  -> sender id -> messages -> message id -> store message
     await firestore
-        .collection('users')
+        .collection(USERS)
         .doc(recieverUserId)
-        .collection('chats')
+        .collection(CHATS)
         .doc(auth.currentUser!.uid)
-        .collection('messages')
+        .collection(MESSAGES)
         .doc(messageId)
         .set(
           message.toMap(),
@@ -117,8 +118,9 @@ class ChatRepository {
       var timeSent = DateTime.now();
       UserModel recieverUserData;
       var UserDataMap =
-          await firestore.collection("users").doc(recieverUserId).get();
+          await firestore.collection(USERS).doc(recieverUserId).get();
       recieverUserData = UserModel.fromMap(UserDataMap.data()!);
+
       var messageId = const Uuid().v1();
 
       _saveDataToContactsSubcollection(
