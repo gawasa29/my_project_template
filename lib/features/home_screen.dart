@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_project_template/features/test_screen1.dart';
+import 'package:my_project_template/features/search/screens/search_screen.dart';
 import 'package:my_project_template/features/test_screen2.dart';
 
-import 'profile/profile_screen.dart';
+import 'profile/screens/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    _currentWidget = const TestScreen1();
+    _currentWidget = const SearchScreen();
     super.initState();
   }
 
@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       _selectedIndex = index;
       if (_selectedIndex == 0) {
-        _currentWidget = const TestScreen1();
+        _currentWidget = const SearchScreen();
       } else if (_selectedIndex == 1) {
         _currentWidget = const TestScreen2();
       } else if (_selectedIndex == 2) {

@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_project_template/common/widgets/loader.dart';
 import 'package:my_project_template/features/auth/controller/auth_controller.dart';
 
-import '../../theme/pllete.dart';
+import '../../../theme/pllete.dart';
 
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});

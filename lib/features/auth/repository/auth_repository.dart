@@ -24,7 +24,10 @@ class AuthRepository {
   final FirebaseAuth auth;
   final FirebaseFirestore firestore;
 
-  AuthRepository({required this.auth, required this.firestore});
+  AuthRepository({
+    required this.auth,
+    required this.firestore,
+  });
 
   Future<UserModel?> getCurrentUserData() async {
     var userData =
