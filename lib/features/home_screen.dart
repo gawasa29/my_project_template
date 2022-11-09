@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
-            label: ('test1'),
+            label: ('search'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.message),
@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(
               Icons.account_circle,
             ),
-            label: ('マイページ'),
+            label: ('profile'),
           ),
         ],
         onTap: (int index) {

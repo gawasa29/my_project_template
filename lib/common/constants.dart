@@ -2,3 +2,4 @@
 const USERS = 'users';
 const CHATS = 'chats';
 const MESSAGES = 'messages';
+const UID = 'uid';

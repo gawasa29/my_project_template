@@ -21,7 +21,7 @@ class SearchRepository {
 
   //自分以外のuserを抽出
   Future<QuerySnapshot<Map<String, dynamic>>?> fetchUsers() async {
-    return await firestore.collection(USERS).where("uid", whereNotIn: [
+    return await firestore.collection(USERS).where(UID, whereNotIn: [
       auth.currentUser!.uid,
     ]).get();
   }
