@@ -8,7 +8,7 @@ import 'package:my_project_template/common/repositories/common_firebase_storage_
 import 'package:my_project_template/common/utils.dart';
 import 'package:my_project_template/models/user_model.dart';
 
-import '../../../home_screen.dart';
+import '../../home_screen.dart';
 import '../screens/otp_screen.dart';
 import '../screens/user_information_screen.dart';
 

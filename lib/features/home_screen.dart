@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_project_template/test_screen1.dart';
-import 'package:my_project_template/test_screen2.dart';
+import 'package:my_project_template/features/test_screen1.dart';
+import 'package:my_project_template/features/test_screen2.dart';
 
-import 'features/profile/profile_screen.dart';
+import 'profile/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
