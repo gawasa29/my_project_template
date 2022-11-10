@@ -8,6 +8,7 @@ import '../../../theme/pllete.dart';
 
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
+
   void toggleTheme(WidgetRef ref) {
     ref.read(themeNotifierProvider.notifier).toggleTheme();
   }
@@ -23,8 +24,25 @@ class ProfileScreen extends ConsumerWidget {
               body: Center(
                 child: Column(
                   children: <Widget>[
+                    Stack(
+                      children: [
+                        user!.profilePic == null
+                            ? const CircleAvatar(
+                                backgroundImage: NetworkImage(
+                                  'https://png.pngitem.com/pimgs/s/649-6490124_katie-notopoulos-katienotopoulos-i-write-about-tech-round.png',
+                                ),
+                                radius: 64,
+                              )
+                            : CircleAvatar(
+                                backgroundImage: NetworkImage(
+                                  user.profilePic,
+                                ),
+                                radius: 64,
+                              ),
+                      ],
+                    ),
                     Text('profile'),
-                    Text(user!.name),
+                    Text(user.name),
                     ElevatedButton(
                       child: const Text('モード切り替え'),
                       onPressed: () {
