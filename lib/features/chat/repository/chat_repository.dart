@@ -25,6 +25,25 @@ class ChatRepository {
     required this.firestore,
     required this.auth,
   });
+
+  Stream<List<Message>> getChatStream(String recieverUserId) {
+    return firestore
+        .collection(USERS)
+        .doc(auth.currentUser!.uid)
+        .collection(CHATS)
+        .doc(recieverUserId)
+        .collection(MESSAGES)
+        .orderBy(TIMESENT)
+        .snapshots()
+        .map((event) {
+      List<Message> messages = [];
+      for (var document in event.docs) {
+        messages.add(Message.fromMap(document.data()));
+      }
+      return messages;
+    });
+  }
+
   void _saveDataToContactsSubcollection(
     UserModel senderUserData,
     UserModel? recieverUserData,
@@ -77,13 +96,13 @@ class ChatRepository {
     required MessageEnum messageType,
   }) async {
     final message = Message(
-        senderId: auth.currentUser!.uid,
-        recieverid: recieverUserId,
-        text: text,
-        type: messageType,
-        timeSent: timeSent,
-        messageId: messageId,
-        isSeen: false);
+      senderId: auth.currentUser!.uid,
+      recieverid: recieverUserId,
+      text: text,
+      type: messageType,
+      timeSent: timeSent,
+      messageId: messageId,
+    );
     // users -> sender id -> reciever id -> messages -> message id -> store message
     await firestore
         .collection(USERS)

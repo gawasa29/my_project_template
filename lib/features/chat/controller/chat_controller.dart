@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../models/message.dart';
 import '../../auth/controller/auth_controller.dart';
 import '../repository/chat_repository.dart';
 
@@ -19,6 +20,9 @@ class ChatController {
     required this.chatRepository,
     required this.ref,
   });
+  Stream<List<Message>> chatStream(String recieverUserId) {
+    return chatRepository.getChatStream(recieverUserId);
+  }
 
   void sendTextMessage(
     BuildContext context,
