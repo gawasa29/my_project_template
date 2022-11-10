@@ -5,6 +5,7 @@ import '../widgets/bottom_chat_field.dart';
 import '../widgets/chat_list.dart';
 
 class MobileChatScreen extends ConsumerWidget {
+  static const String routeName = '/mobile-chat-screen';
   final String name;
   final String uid;
   const MobileChatScreen({
@@ -18,6 +19,7 @@ class MobileChatScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
+        title: Text(name),
         actions: [
           IconButton(
             onPressed: () {},

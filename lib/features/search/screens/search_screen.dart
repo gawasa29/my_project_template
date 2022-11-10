@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_project_template/common/widgets/loader.dart';
+import 'package:my_project_template/features/chat/screens/mobile_chat_screen.dart';
 
 import '../controller/search_controller.dart';
 
@@ -33,7 +34,15 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                       trailing: IconButton(
                         icon: Icon(Icons.person_add),
                         onPressed: () {
-                          print('このユーザーとのトークルームを作成しました${data}');
+                          // print('このユーザーとのトークルームを作成しました${data}');
+                          Navigator.pushNamed(
+                            context,
+                            MobileChatScreen.routeName,
+                            arguments: {
+                              'name': data['name'],
+                              'uid': data['uid'],
+                            },
+                          );
                         },
                       ),
                     ),

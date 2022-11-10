@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_project_template/features/search/screens/search_screen.dart';
-import 'package:my_project_template/features/test_screen2.dart';
 
 import 'profile/screens/profile_screen.dart';
 
@@ -31,8 +30,6 @@ class _HomeScreenState extends State<HomeScreen> {
       if (_selectedIndex == 0) {
         _currentWidget = const SearchScreen();
       } else if (_selectedIndex == 1) {
-        _currentWidget = const TestScreen2();
-      } else if (_selectedIndex == 2) {
         _currentWidget = const ProfileScreen();
       } else {}
     });
@@ -46,10 +43,6 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: ('search'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.message),
-            label: ('test2'),
           ),
           BottomNavigationBarItem(
             icon: Icon(
